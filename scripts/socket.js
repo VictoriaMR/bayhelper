@@ -17,9 +17,17 @@ const socketConnect = async(sender) => {
         await listenerEvent({action: 'alert', value: '请先确认配置, 点击确认开始连接'}, sender);
         return false;
     }
+
+    var ioConfig = await getCache('baycheerhelper_auto_robot_config');
+    console.log(ioConfig, 'ioConfig')
+    let baseUrl;
+    if (ioConfig.ioUrl) {
+        baseUrl = ioConfig.ioUrl;
+    } else { //版本迭代可能没有数据使用旧接口
+        baseUrl = domain+':12002/socket.io/';
+    }
     let t = await strRandom(7);
-    // let baseUrl = domain+':12002/socket.io/?EIO=3&transport=polling&t='+t;
-    let baseUrl = 'https://localhost:12002/socket.io/?EIO=3&transport=polling&t='+t;
+    baseUrl += '?EIO=3&transport=polling&t='+t;
     let res = await ioConnect(baseUrl, sender);
     if (res) {
         // WebSocket 实例

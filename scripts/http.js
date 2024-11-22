@@ -33,10 +33,14 @@ const getApi = async (url, param, type, dataType, headers) => {
             init.headers[i] = headers[i];
         }
     }
-    const response = await fetch(url, init);
-    if (response.ok) {
-        return await response[dataType]();
+    try {
+        const response = await fetch(url, init);
+        if (response.ok) {
+            return await response[dataType]();
+        }
+        return {code: -1, data: false, msg: '请求失败, 请和管理人员联系.'+response.status+': '+response.statusText};
+    } catch(e) {
+        console.log(e)
+        return {code: -1, data: false, msg: '请求失败, 请和管理人员联系.'+(e.message ? e.message : 'TypeError: Failed to fetch')};
     }
-    console.log(response['text'], 'response')
-    return {code: -1, data: false, msg: '请求失败, 请和管理人员联系.'+response.status+': '+response.statusText};
 }

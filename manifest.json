@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "BayCheer助手",
     "description": "BayCheerERP系统助手",
-    "version": "3.1.4",
+    "version": "3.1.5",
     "permissions": [
         "tabs",
         "cookies",
@@ -35,13 +35,11 @@
             "scripts/init.js"
         ],
         "matches": [
-            "*://*.baycheer.cn/*",
             "*://*.baycheer.com/*",
             "*://*.1688.com/*",
             "*://*.tmall.com/*",
             "*://*.tmall.hk/*",
             "*://*.taobao.com/*",
-            "*://127.0.0.1/*",
             "*://*.jiyoujia.com/*"
         ],
         "run_at": "document_start",
@@ -51,13 +49,11 @@
             "scripts/content.js"
         ],
         "matches": [
-            "*://*.baycheer.cn/*",
             "*://*.baycheer.com/*",
             "*://*.1688.com/*",
             "*://*.tmall.com/*",
             "*://*.tmall.hk/*",
             "*://*.taobao.com/*",
-            "*://127.0.0.1/*",
             "*://*.jiyoujia.com/*"
         ],
         "run_at": "document_start",
@@ -68,37 +64,31 @@
             "scripts/load.js"
         ],
         "matches": [
-            "*://*.baycheer.cn/*",
             "*://*.baycheer.com/*",
             "*://*.1688.com/*",
             "*://*.tmall.com/*",
             "*://*.tmall.hk/*",
             "*://*.taobao.com/*",
-            "*://127.0.0.1/*",
             "*://*.jiyoujia.com/*"
         ],
         "run_at": "document_end",
         "all_frames": false
     }],
     "host_permissions": [
-        "*://*.baycheer.cn/*",
         "*://*.baycheer.com/*",
         "*://*.1688.com/*",
         "*://*.tmall.com/*",
         "*://*.tmall.hk/*",
         "*://*.taobao.com/*",
-        "*://127.0.0.1/*",
         "*://*.jiyoujia.com/*"
     ],
     "externally_connectable": {
         "matches": [
-            "*://*.baycheer.cn/*",
             "*://*.baycheer.com/*",
             "*://*.1688.com/*",
             "*://*.tmall.com/*",
             "*://*.tmall.hk/*",
             "*://*.taobao.com/*",
-            "*://127.0.0.1/*",
             "*://*.jiyoujia.com/*"
         ]
     }
