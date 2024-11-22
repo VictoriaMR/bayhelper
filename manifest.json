@@ -1,0 +1,105 @@
+{
+    "manifest_version": 3,
+    "name": "BayCheer助手",
+    "description": "BayCheerERP系统助手",
+    "version": "3.1.4",
+    "permissions": [
+        "tabs",
+        "cookies",
+        "webRequest",
+        "scripting",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_title": "BayCheer助手",
+        "default_icon": {
+            "16": "images/icon-16.png",
+            "32": "images/icon-32.png",
+            "48": "images/icon-48.png",
+            "128": "images/icon-128.png"
+        },
+        "default_popup": "menu/menu.html"
+    },
+    "icons": {
+        "16": "images/icon-16.png",
+        "32": "images/icon-32.png",
+        "48": "images/icon-48.png",
+        "128": "images/icon-128.png"
+    },
+    "content_scripts": [{
+        "world": "MAIN",
+        "js": [
+            "scripts/init.js"
+        ],
+        "matches": [
+            "*://*.baycheer.cn/*",
+            "*://*.baycheer.com/*",
+            "*://*.1688.com/*",
+            "*://*.tmall.com/*",
+            "*://*.tmall.hk/*",
+            "*://*.taobao.com/*",
+            "*://127.0.0.1/*",
+            "*://*.jiyoujia.com/*"
+        ],
+        "run_at": "document_start",
+        "all_frames": false
+    },{
+        "js": [
+            "scripts/content.js"
+        ],
+        "matches": [
+            "*://*.baycheer.cn/*",
+            "*://*.baycheer.com/*",
+            "*://*.1688.com/*",
+            "*://*.tmall.com/*",
+            "*://*.tmall.hk/*",
+            "*://*.taobao.com/*",
+            "*://127.0.0.1/*",
+            "*://*.jiyoujia.com/*"
+        ],
+        "run_at": "document_start",
+        "all_frames": false
+    },{
+        "world": "MAIN",
+        "js": [
+            "scripts/load.js"
+        ],
+        "matches": [
+            "*://*.baycheer.cn/*",
+            "*://*.baycheer.com/*",
+            "*://*.1688.com/*",
+            "*://*.tmall.com/*",
+            "*://*.tmall.hk/*",
+            "*://*.taobao.com/*",
+            "*://127.0.0.1/*",
+            "*://*.jiyoujia.com/*"
+        ],
+        "run_at": "document_end",
+        "all_frames": false
+    }],
+    "host_permissions": [
+        "*://*.baycheer.cn/*",
+        "*://*.baycheer.com/*",
+        "*://*.1688.com/*",
+        "*://*.tmall.com/*",
+        "*://*.tmall.hk/*",
+        "*://*.taobao.com/*",
+        "*://127.0.0.1/*",
+        "*://*.jiyoujia.com/*"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "*://*.baycheer.cn/*",
+            "*://*.baycheer.com/*",
+            "*://*.1688.com/*",
+            "*://*.tmall.com/*",
+            "*://*.tmall.hk/*",
+            "*://*.taobao.com/*",
+            "*://127.0.0.1/*",
+            "*://*.jiyoujia.com/*"
+        ]
+    }
+}
