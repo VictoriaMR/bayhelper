@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "BayCheer助手",
     "description": "BayCheerERP系统助手",
-    "version": "3.1.5",
+    "version": "3.1.6",
     "permissions": [
         "tabs",
         "cookies",
@@ -73,6 +73,17 @@
         ],
         "run_at": "document_end",
         "all_frames": false
+    },{
+        "world": "MAIN",
+        "js": [
+            "scripts/load.js"
+        ],
+        "matches": [
+            "*://*.taobao.com/app/im/chat-core/*",
+            "*://*.1688.com/app/ocms-fusion-components-1688/def_cbu_web_im_core/*"
+        ],
+        "run_at": "document_end",
+        "all_frames": true
     }],
     "host_permissions": [
         "*://*.baycheer.com/*",
